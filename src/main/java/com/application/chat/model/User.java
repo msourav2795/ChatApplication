@@ -1,7 +1,6 @@
 package com.application.chat.model;
 
 import java.io.Serializable;
-import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,11 +9,9 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -45,6 +42,9 @@ public class User implements Serializable{
 
 	@Column(nullable = true)
 	private long profilePictureId;
+	
+	@NotBlank
+	private String password;
 	
 	private char status;
 	
@@ -149,6 +149,13 @@ public class User implements Serializable{
 	public void setStatus(char status) {
 		this.status = status;
 	}
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 }
